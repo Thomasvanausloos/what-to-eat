@@ -1,0 +1,10 @@
+<mat-card class="card">
+  <h2 mat-line>Recipes</h2>
+  <mat-list>
+    <a mat-list-item *ngFor="let recipe of recipes$ | async ">
+      <!-- [routerLink]=" [ '/contacts', contact?.id] " -->
+      <img mat-list-avatar [src]="recipe?.imageUrl || '' " alt="Picture of {{recipe?.name}} ">
+      <h3 mat-line>{{recipe?.name}}</h3>
+    </a>
+  </mat-list>
+</mat-card>

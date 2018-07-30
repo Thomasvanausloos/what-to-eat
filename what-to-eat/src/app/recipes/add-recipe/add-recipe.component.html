@@ -1,0 +1,94 @@
+<!-- <div class="trm-contacts-detail"> -->
+<mat-card class="card">
+  <mat-card-title-group>
+    <img mat-card-md-image [src]="'https://www.howtocookthat.net/public_html/wp-content/uploads/2015/09/IMG_9495-550x413.jpg?x19907'">
+    <mat-card-title>Recipes</mat-card-title>
+    <mat-card-subtitle>Add a new recipe</mat-card-subtitle>
+  </mat-card-title-group>
+  <mat-card-content>
+    <br>
+    <mat-tab-group>
+      <mat-tab label="Info">
+        <br>
+        <mat-list>
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput placeholder="Recipe name">
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput placeholder="Preparation time (minutes)">
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput placeholder="Label">
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput placeholder="Image URL">
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+      <mat-tab label="Ingredients">
+        <br>
+        <div style="padding-left:16px;">
+          <mat-select placeholder="Number of people">
+            <mat-option *ngFor="let amount of amountSelect" [value]="amount">
+              {{amount}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <br>
+        <mat-list>
+          <ng-container *ngFor="let ingredient of ingredients">
+            <mat-list-item>{{ingredient}}
+              <mat-icon (click)="deleteIngredient(ingredient)" style="position:absolute; right:0;">clear</mat-icon>
+            </mat-list-item>
+            <!-- <mat-icon (click)="deleteIngredient(ingredient)">clear</mat-icon> -->
+          </ng-container>
+          <mat-icon *ngIf="!showNewIngredientInputField" (click)="addNewIngredient()" style="padding:16px;">add</mat-icon>
+          <mat-list-item *ngIf="showNewIngredientInputField">
+            <mat-form-field>
+              <input #inputElement matInput placeholder="New ingredient" (keydown)="inputKeyDown($event, inputElement.value)">
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+      <mat-tab label="Preparation Steps">
+        <mat-list>
+          <ng-container *ngFor="let preparationStep of preparationSteps; index as i">
+            <br>
+            <span class="step-title">{{'Step ' + (i+1)}}</span>
+            <br>
+            <mat-list-item>
+              <mat-card class="broad-card">
+                <mat-card-content>
+                  {{preparationStep}}
+                  <mat-icon (click)="deleteStep(preparationStep)" style="position:absolute; right:10px;">edit</mat-icon>
+                </mat-card-content>
+              </mat-card>
+            </mat-list-item>
+            <br>
+            <br>
+          </ng-container>
+          <mat-list-item *ngIf="showNewPreparationStepInputField">
+            <mat-form-field>
+              <textarea #newStep matInput placeholder="New step" (keydown)="preparationStepsKeyDown($event, newStep.value)"></textarea>
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+        <mat-icon *ngIf="!showNewPreparationStepInputField" (click)="addNewPreparationStep()" style="padding:16px;">add</mat-icon>
+      </mat-tab>
+    </mat-tab-group>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary">Cancel</button>
+    <button mat-button color="primary" style="position: absolute; right: 16px;">Save</button>
+  </mat-card-actions>
+</mat-card>
+<!-- </div> -->

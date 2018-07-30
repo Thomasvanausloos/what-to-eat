@@ -1,0 +1,28 @@
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.input-field {
+  max-width: 100%;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  width: 500px !important;
+}
+
+.broad-card {
+  width: 500px;
+  margin-top: 20px;
+  /* padding-bottom: 20px; */
+  position: absolute;
+  left: 0;
+}
+
+.step-title {
+  padding: 16px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  /* margin-top: 20px; */
+}

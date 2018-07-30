@@ -1,0 +1,14 @@
+.card {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+  
+  .broad-card {
+    width: 500px;
+    margin-top: 20px;
+    /* padding-bottom: 20px; */
+    position: absolute;
+    left: 0;
+  }
+  

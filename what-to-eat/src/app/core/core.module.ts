@@ -14,6 +14,11 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatIconModule,
     MatListModule
   ],
-  declarations: [NavbarComponent]
+  exports: [
+    NavbarComponent
+  ],
+  declarations: [
+    NavbarComponent
+  ]
 })
 export class CoreModule { }

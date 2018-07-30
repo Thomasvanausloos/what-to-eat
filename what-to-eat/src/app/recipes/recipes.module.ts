@@ -1,10 +1,43 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, ModuleWithProviders } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { AddRecipeComponent } from "./add-recipe/add-recipe.component";
+import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatSelectModule } from "@angular/material/select";
+import { MatIconModule } from "@angular/material/icon";
+import { DisplayRecipeComponent } from "./display-recipe/display-recipe.component";
+import { Recipe } from "./recipe";
+import { RecipeListComponent } from "./recipe-list/recipe-list.component";
+import { RecipeService } from "./recipe.service";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatListModule,
+    MatTabsModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatIconModule
   ],
-  declarations: []
+  exports: [AddRecipeComponent, DisplayRecipeComponent, RecipeListComponent],
+  declarations: [
+    AddRecipeComponent,
+    DisplayRecipeComponent,
+    RecipeListComponent
+  ]
 })
-export class RecipesModule { }
+export class RecipesModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: RecipesModule,
+      providers: [RecipeService]
+    };
+  }
+}
