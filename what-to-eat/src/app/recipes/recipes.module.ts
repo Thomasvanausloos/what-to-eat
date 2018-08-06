@@ -10,13 +10,14 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatSelectModule } from "@angular/material/select";
 import { MatIconModule } from "@angular/material/icon";
 import { DisplayRecipeComponent } from "./display-recipe/display-recipe.component";
-import { Recipe } from "./recipe";
 import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeService } from "./recipe.service";
+import { RouterModule } from "../../../node_modules/@angular/router";
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     MatCardModule,
     MatButtonModule,
     MatInputModule,

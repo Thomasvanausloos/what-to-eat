@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { RECIPE_DATA } from "./data";
 import { of, Observable } from "rxjs";
-import { map } from "../../../node_modules/rxjs/operators";
+import { map, first } from "rxjs/operators";
 import { Recipe } from "./recipe";
 
 @Injectable({
@@ -18,9 +18,9 @@ export class RecipeService {
     return this.recipes$;
   }
 
-  getRecipeById(id: number) {
+  getRecipeById(id: number): Observable<Recipe> {
     return this.recipes$.pipe(
-      map(recipes => (recipes = recipes.filter(recipe => recipe.id === id)))
+      map(recipes => recipes.filter(recipe => recipe.id === id)[0])
     );
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "../../../../node_modules/rxjs";
+import { Observable } from "rxjs";
 import { Recipe } from "../recipe";
 import { RecipeService } from "../recipe.service";
+import { Router } from "../../../../node_modules/@angular/router";
 
 @Component({
   selector: "app-recipe-list",
@@ -11,9 +12,13 @@ import { RecipeService } from "../recipe.service";
 export class RecipeListComponent implements OnInit {
   recipes$: Observable<Array<Recipe>>;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService, private router: Router) {}
 
   ngOnInit() {
     this.recipes$ = this.recipeService.getAllRecipes();
+  }
+
+  routeToRecipe(id: number) {
+    this.router.navigate(["detail", id]);
   }
 }
