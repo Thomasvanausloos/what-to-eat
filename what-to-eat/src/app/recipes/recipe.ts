@@ -7,4 +7,11 @@ export class Recipe {
   imageUrl: string;
   ingredients: Array<string>;
   preparationSteps: Array<string>;
+
+  constructor() {
+    this.amountOfPeople = 4;
+    this.imageUrl = '';
+    this.ingredients = [];
+    this.preparationSteps = [];
+  }
 }

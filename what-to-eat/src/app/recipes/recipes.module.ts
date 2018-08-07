@@ -13,6 +13,7 @@ import { DisplayRecipeComponent } from "./display-recipe/display-recipe.componen
 import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeService } from "./recipe.service";
 import { RouterModule } from "../../../node_modules/@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { RouterModule } from "../../../node_modules/@angular/router";
     MatTabsModule,
     MatDividerModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   exports: [AddRecipeComponent, DisplayRecipeComponent, RecipeListComponent],
   declarations: [
