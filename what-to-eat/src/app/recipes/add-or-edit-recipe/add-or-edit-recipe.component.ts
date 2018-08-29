@@ -10,6 +10,7 @@ export class AddOrEditRecipeComponent implements OnInit {
 
   @Input() recipe: Recipe;
   @Output() onBewaar: EventEmitter<Recipe> = new EventEmitter<Recipe>();
+  ingredientToAdd: string = '';
 
   amountSelect: Array<number>;
   ingredients: Array<string>;
@@ -25,7 +26,6 @@ export class AddOrEditRecipeComponent implements OnInit {
     this.showNewPreparationStepInputField = false;
     this.amountSelect = [1, 2, 3, 4, 5, 6, 7, 8];
     this.ingredients = [];
-    this.newIngredient = "";
     // this.preparationSteps = ["This is step one, bla bla bla ...."];
   }
 
@@ -42,6 +42,7 @@ export class AddOrEditRecipeComponent implements OnInit {
     if (event.key === "Enter" || event.key === "Tab") {
       this.recipe.ingredients.push(value);
       this.showNewIngredientInputField = false;
+      event.target.value = '';
     }
   }
 
@@ -52,7 +53,8 @@ export class AddOrEditRecipeComponent implements OnInit {
     }
   }
   deleteIngredient(ingredientToRemove: string) {
-    this.ingredients = this.ingredients.filter(
+    console.log('delete');
+    this.recipe.ingredients = this.recipe.ingredients.filter(
       ingredient => ingredient !== ingredientToRemove
     );
   }
@@ -62,9 +64,9 @@ export class AddOrEditRecipeComponent implements OnInit {
   }
 
   deleteStep(stepToRemove: string) {
-    // this.preparationSteps = this.preparationSteps.filter(
-    // step => step != stepToRemove
-    // );§
+    this.recipe.preparationSteps = this.recipe.preparationSteps.filter(
+    step => step != stepToRemove
+    );
   }
 
 }
