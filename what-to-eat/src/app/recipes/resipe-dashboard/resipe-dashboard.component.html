@@ -13,6 +13,7 @@
   <app-recipe-list
     class="flexItem2"
     [recipes]="allRecipes$ | async"
-    (onRecipeSelected)="routeToRecipe($event)">
+    (onRecipeSelected)="routeToRecipe($event)"
+    (searchTerm)="updateRecipeList($event)">
   </app-recipe-list>
 </div>

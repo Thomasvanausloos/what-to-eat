@@ -10,8 +10,8 @@ import {Subject} from "rxjs/index";
 export class RecipeListComponent implements OnInit {
 
   @Input() recipes: Array<Recipe>;
-  @Output() onRecipeSelected = new EventEmitter();
-  searchTerm$: Subject<string> = new Subject<string>();
+  @Output() onRecipeSelected: EventEmitter<number> = new EventEmitter();
+  @Output() searchTerm: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(){}
 
@@ -20,5 +20,8 @@ export class RecipeListComponent implements OnInit {
 
   selectRecipe(id:number){
     this.onRecipeSelected.emit(id);
+  }
+  searchTermEntered(term: string){
+    this.searchTerm.emit(term);
   }
 }

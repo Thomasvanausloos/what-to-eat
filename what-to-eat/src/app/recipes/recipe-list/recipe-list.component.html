@@ -3,7 +3,7 @@
   <h2 mat-card-title>All recipes</h2>
   <mat-toolbar style="background: #ffffff; font-size: 16px; font-family: Roboto,Helvetica Neue,sans-serif;">
     <mat-form-field color="primary" class="trm-search-container">
-      <input matInput type="text" (input)="searchTerm$.next($event.target.value)">
+      <input matInput type="text" (input)="searchTermEntered($event.target.value)">
     </mat-form-field>
     <mat-icon color="primary">search</mat-icon>
   </mat-toolbar>

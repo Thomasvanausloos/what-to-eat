@@ -3,6 +3,7 @@ import { RECIPE_DATA } from "./data";
 import { of, Observable } from "rxjs";
 import { map} from "rxjs/operators";
 import { Recipe } from "./recipe";
+import {filter} from "rxjs/internal/operators";
 
 @Injectable({
   providedIn: "root"
@@ -39,5 +40,11 @@ export class RecipeService {
         return recipe
       }
     });
+  }
+  filterRecipes(searchTerm: string): Observable<Array<Recipe>> {
+    return of(this.recipes).pipe(
+      map(recipes => recipes.filter(recipe => recipe.name.toLowerCase().startsWith(searchTerm.toLowerCase()) || recipe.name.toLowerCase().includes(searchTerm.toLowerCase())))
+    );
+    // return of(this.recipes.filter(recipe => recipe.name.toLowerCase().startsWith(searchTerm.toLowerCase())));
   }
 }

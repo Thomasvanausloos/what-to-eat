@@ -1,19 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Recipe} from "../recipe";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs/index";
+import {Observable, Subject} from "rxjs/index";
 import {RecipeService} from "../recipe.service";
+import {debounceTime, distinctUntilChanged, merge, switchMap, takeUntil} from "rxjs/internal/operators";
 
 @Component({
   selector: 'app-resipe-dashboard',
   templateUrl: './resipe-dashboard.component.html',
   styleUrls: ['./resipe-dashboard.component.css']
 })
-export class ResipeDashboardComponent implements OnInit {
+export class ResipeDashboardComponent implements OnInit, OnDestroy{
 
   randomRecipe: Recipe;
   latestAddedRecipe: Recipe;
   allRecipes$: Observable<Array<Recipe>>;
+  searchTerm$: Subject<string> = new Subject<string>();
+  unsubscribe$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private router: Router,
               private recipeService: RecipeService) {
@@ -22,6 +25,15 @@ export class ResipeDashboardComponent implements OnInit {
   ngOnInit() {
 
     this.allRecipes$ = this.recipeService.getAllRecipes();
+    this.allRecipes$ = this.searchTerm$.pipe(
+      debounceTime(400),
+      distinctUntilChanged(),
+      switchMap(searchterm => this.recipeService.filterRecipes(searchterm).pipe(
+        takeUntil(this.searchTerm$)
+      )),
+      merge(this.recipeService.getAllRecipes()),
+      takeUntil(this.unsubscribe$)
+    );
     this.randomRecipe = {
       id: 2,
       ingredients: ["banaan", "chocolade", "slagroom"],
@@ -62,5 +74,13 @@ export class ResipeDashboardComponent implements OnInit {
     this.router.navigate(["detail", event.valueOf()]);
   }
 
+    updateRecipeList(searchTerm: string){
+      this.searchTerm$.next(searchTerm);
+      console.log(searchTerm);
+    }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next(true);
+  }
 
 }
