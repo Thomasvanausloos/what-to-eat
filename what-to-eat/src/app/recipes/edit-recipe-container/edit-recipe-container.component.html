@@ -1,0 +1,6 @@
+<div class="container">
+  <app-add-or-edit-recipe
+  [recipe]="recipeToEdit$ | async"
+  (onBewaar)="updateRecipe($event)">
+  </app-add-or-edit-recipe>
+</div>

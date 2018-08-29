@@ -1,8 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import { Recipe } from "../recipe";
-import { RecipeService } from "../recipe.service";
-import { Router } from "../../../../node_modules/@angular/router";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Recipe} from "../recipe";
+import {Subject} from "rxjs/index";
 
 @Component({
   selector: "app-recipe-list",
@@ -10,15 +8,17 @@ import { Router } from "../../../../node_modules/@angular/router";
   styleUrls: ["./recipe-list.component.css"]
 })
 export class RecipeListComponent implements OnInit {
-  recipes$: Observable<Array<Recipe>>;
 
-  constructor(private recipeService: RecipeService, private router: Router) {}
+  @Input() recipes: Array<Recipe>;
+  @Output() onRecipeSelected = new EventEmitter();
+  searchTerm$: Subject<string> = new Subject<string>();
+
+  constructor(){}
 
   ngOnInit() {
-    this.recipes$ = this.recipeService.getAllRecipes();
   }
 
-  routeToRecipe(id: number) {
-    this.router.navigate(["detail", id]);
+  selectRecipe(id:number){
+    this.onRecipeSelected.emit(id);
   }
 }

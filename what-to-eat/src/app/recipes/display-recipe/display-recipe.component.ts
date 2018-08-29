@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Recipe } from "../recipe";
 import { Observable } from "../../../../node_modules/rxjs";
 import { RecipeService } from "../recipe.service";
-import { ActivatedRoute } from "../../../../node_modules/@angular/router";
+import {ActivatedRoute, Router} from "../../../../node_modules/@angular/router";
 
 @Component({
   selector: "app-display-recipe",
@@ -14,7 +14,8 @@ export class DisplayRecipeComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     // {
     //   ingredients: ["wortel", "aardappel", "tomaat"],
@@ -35,5 +36,8 @@ export class DisplayRecipeComponent implements OnInit {
     this.recipe$ = this.recipeService.getRecipeById(
       Number(this.route.snapshot.paramMap.get("id"))
     );
+  }
+  navigateToEditScreen(){
+    this.router.navigate(["edit",this.route.snapshot.paramMap.get("id")]);
   }
 }

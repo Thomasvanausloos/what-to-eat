@@ -1,12 +1,14 @@
-import { Routes } from "@angular/router";
-import { RecipeListComponent } from "./recipes/recipe-list/recipe-list.component";
-import { DisplayRecipeComponent } from "./recipes/display-recipe/display-recipe.component";
-import { AddRecipeComponent } from "./recipes/add-recipe/add-recipe.component";
+import {Routes} from "@angular/router";
+import {DisplayRecipeComponent} from "./recipes/display-recipe/display-recipe.component";
+import {ResipeDashboardComponent} from "./recipes/resipe-dashboard/resipe-dashboard.component";
+import {AddRecipeContainerComponent} from "./recipes/add-recipe-container/add-recipe-container.component";
+import {EditRecipeContainerComponent} from "./recipes/edit-recipe-container/edit-recipe-container.component";
 
 export const APP_ROUTES: Routes = [
-  { path: "", redirectTo: "list", pathMatch: "full" },
-  { path: "list", component: RecipeListComponent },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "detail/:id", component: DisplayRecipeComponent },
-  { path: "add", component: AddRecipeComponent },
+  { path: "add", component: AddRecipeContainerComponent },
+  { path: "edit/:id", component: EditRecipeContainerComponent },
+  { path: "home", component: ResipeDashboardComponent },
   { path: "**", redirectTo: "" }
 ];

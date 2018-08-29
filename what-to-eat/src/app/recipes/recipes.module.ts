@@ -1,6 +1,5 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { AddRecipeComponent } from "./add-recipe/add-recipe.component";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
@@ -14,6 +13,12 @@ import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeService } from "./recipe.service";
 import { RouterModule } from "../../../node_modules/@angular/router";
 import {FormsModule} from "@angular/forms";
+import {MatToolbarModule} from "@angular/material";
+import { TeaserRecipeComponent } from './teaser-recipe/teaser-recipe.component';
+import { ResipeDashboardComponent } from './resipe-dashboard/resipe-dashboard.component';
+import { EditRecipeContainerComponent } from './edit-recipe-container/edit-recipe-container.component';
+import { AddOrEditRecipeComponent } from './add-or-edit-recipe/add-or-edit-recipe.component';
+import { AddRecipeContainerComponent } from './add-recipe-container/add-recipe-container.component';
 
 @NgModule({
   imports: [
@@ -27,13 +32,22 @@ import {FormsModule} from "@angular/forms";
     MatDividerModule,
     MatSelectModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule
   ],
-  exports: [AddRecipeComponent, DisplayRecipeComponent, RecipeListComponent],
-  declarations: [
-    AddRecipeComponent,
+  exports: [
     DisplayRecipeComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    TeaserRecipeComponent,
+    ResipeDashboardComponent],
+  declarations: [
+    DisplayRecipeComponent,
+    RecipeListComponent,
+    TeaserRecipeComponent,
+    ResipeDashboardComponent,
+    EditRecipeContainerComponent,
+    AddOrEditRecipeComponent,
+    AddRecipeContainerComponent
   ]
 })
 export class RecipesModule {

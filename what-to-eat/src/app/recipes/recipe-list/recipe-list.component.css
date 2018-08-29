@@ -1,11 +1,16 @@
 .card {
-  max-width: 600px;
+  /*max-width: 600px;*/
+  max-width: 100%;
+  height: 100%;
+  /*width: 100%;*/
+  /*width: 600px;*/
   margin: 0 auto;
   margin-top: 2em;
 }
 
 .broad-card {
-  width: 500px;
+  /*width: 500px;*/
+  width: 95%;
   margin-top: 20px;
   /* padding-bottom: 20px; */
   position: absolute;

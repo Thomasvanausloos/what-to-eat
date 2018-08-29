@@ -27,4 +27,17 @@ export class RecipeService {
   addRecipe(recipe: Recipe): void {
     this.recipes.push(recipe);
   }
+
+  calculateNextId(): number{
+    return this.recipes.length;
+  }
+  updateRecipe(recipeToUpdate: Recipe) {
+    this.recipes = this.recipes.map(recipe => {
+      if(recipe.id === recipeToUpdate.id){
+        return recipeToUpdate;
+      } else{
+        return recipe
+      }
+    });
+  }
 }

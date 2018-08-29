@@ -1,14 +1,15 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Recipe} from "../recipe";
-import {RecipeService} from "../recipe.service";
 
 @Component({
-  selector: "app-add-recipe",
-  templateUrl: "./add-recipe.component.html",
-  styleUrls: ["./add-recipe.component.css"]
+  selector: 'app-add-or-edit-recipe',
+  templateUrl: './add-or-edit-recipe.component.html',
+  styleUrls: ['./add-or-edit-recipe.component.css']
 })
-export class AddRecipeComponent implements OnInit {
-  recipeToAdd: Recipe;
+export class AddOrEditRecipeComponent implements OnInit {
+
+  @Input() recipe: Recipe;
+  @Output() onBewaar: EventEmitter<Recipe> = new EventEmitter<Recipe>();
 
   amountSelect: Array<number>;
   ingredients: Array<string>;
@@ -17,18 +18,17 @@ export class AddRecipeComponent implements OnInit {
   newIngredient: string;
   preparationSteps: Array<string>;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor() {}
 
   ngOnInit() {
     this.showNewIngredientInputField = false;
     this.showNewPreparationStepInputField = false;
-    this.recipeToAdd = new Recipe();
-    this.recipeToAdd.id = 4;
     this.amountSelect = [1, 2, 3, 4, 5, 6, 7, 8];
     this.ingredients = [];
     this.newIngredient = "";
     // this.preparationSteps = ["This is step one, bla bla bla ...."];
   }
+
 
   addNewIngredient(): void {
     this.showNewIngredientInputField = true;
@@ -39,15 +39,15 @@ export class AddRecipeComponent implements OnInit {
   }
 
   inputKeyDown(event, value: string) {
-    if (event.key === "Enter" || event.key === 'Tab') {
-      this.recipeToAdd.ingredients.push(value);
+    if (event.key === "Enter" || event.key === "Tab") {
+      this.recipe.ingredients.push(value);
       this.showNewIngredientInputField = false;
     }
   }
 
   preparationStepsKeyDown(event, value: string) {
-    if (event.key === "Enter" || event.key === 'Tab') {
-      this.recipeToAdd.preparationSteps.push(value);
+    if (event.key === "Enter" || event.key === "Tab") {
+      this.recipe.preparationSteps.push(value);
       this.showNewPreparationStepInputField = false;
     }
   }
@@ -56,6 +56,10 @@ export class AddRecipeComponent implements OnInit {
       ingredient => ingredient !== ingredientToRemove
     );
   }
+  saveRecipe(){
+    console.log('in save');
+    this.onBewaar.emit(this.recipe);
+  }
 
   deleteStep(stepToRemove: string) {
     // this.preparationSteps = this.preparationSteps.filter(
@@ -63,8 +67,4 @@ export class AddRecipeComponent implements OnInit {
     // );§
   }
 
-  saveRecipe() {
-    console.log(this.recipeToAdd);
-    this.recipeService.addRecipe(this.recipeToAdd);
-  }
 }
