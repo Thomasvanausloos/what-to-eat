@@ -1,14 +1,19 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FeatureService} from "../../security/service/feature.service";
+import {Observable} from "rxjs/index";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
   @Input() applicationTitle: string;
+  planningFeatureEnabled: Observable<boolean>;
+  constructor(private featureService: FeatureService) {}
 
-  constructor() {}
-
+  ngOnInit(): void {
+    this.planningFeatureEnabled = this.featureService.planningFeatureActive();
+  }
   }

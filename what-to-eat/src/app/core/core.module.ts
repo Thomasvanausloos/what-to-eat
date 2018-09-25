@@ -10,6 +10,8 @@ import {
   MatListModule
 } from "@angular/material";
 import { RouterModule } from "../../../node_modules/@angular/router";
+import {SharedModule} from "../shared/shared.module";
+import {SecurityModule} from "../security/security.module";
 
 @NgModule({
   imports: [
@@ -20,7 +22,8 @@ import { RouterModule } from "../../../node_modules/@angular/router";
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    SecurityModule
   ],
   exports: [NavbarComponent],
   declarations: [NavbarComponent]

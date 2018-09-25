@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeService} from "../recipe.service";
 import {Recipe} from "../recipe";
-import {Observable} from "rxjs/index";
+import {BehaviorSubject, Observable} from "rxjs/index";
 
 @Component({
   selector: 'app-add-recipe-container',
@@ -11,12 +11,14 @@ import {Observable} from "rxjs/index";
 })
 export class AddRecipeContainerComponent implements OnInit {
 
-  recipeToEdit$: Observable<Recipe>;
+  recipe$: BehaviorSubject<Recipe>;
+
   constructor(private router: Router,
               private recipeService: RecipeService
   ) { }
 
   ngOnInit() {
+    this.recipe$ = new BehaviorSubject<Recipe>(this.setupNewRecipe());
   }
 
   setupNewRecipe(){
@@ -27,6 +29,7 @@ export class AddRecipeContainerComponent implements OnInit {
   saveRecipe(recipe: Recipe) {
     console.log(recipe);
     this.recipeService.addRecipe(recipe);
+    this.recipe$.next(recipe);
     this.router.navigate(["/home"]);
   }
 

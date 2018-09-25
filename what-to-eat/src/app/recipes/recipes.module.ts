@@ -51,10 +51,10 @@ import { AddRecipeContainerComponent } from './add-recipe-container/add-recipe-c
   ]
 })
 export class RecipesModule {
-  public static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: RecipesModule,
-      providers: [RecipeService]
-    };
-  }
+    public static forRoot(): ModuleWithProviders {
+      return {
+        ngModule: RecipesModule,
+        providers: [RecipeService]
+      };
+    }
 }

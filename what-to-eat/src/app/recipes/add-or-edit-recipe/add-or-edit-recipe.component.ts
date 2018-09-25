@@ -13,10 +13,8 @@ export class AddOrEditRecipeComponent implements OnInit {
   ingredientToAdd: string = '';
 
   amountSelect: Array<number>;
-  ingredients: Array<string>;
   showNewIngredientInputField: boolean;
   showNewPreparationStepInputField: boolean;
-  newIngredient: string;
   preparationSteps: Array<string>;
 
   constructor() {}
@@ -25,7 +23,6 @@ export class AddOrEditRecipeComponent implements OnInit {
     this.showNewIngredientInputField = false;
     this.showNewPreparationStepInputField = false;
     this.amountSelect = [1, 2, 3, 4, 5, 6, 7, 8];
-    this.ingredients = [];
     // this.preparationSteps = ["This is step one, bla bla bla ...."];
   }
 
@@ -40,7 +37,10 @@ export class AddOrEditRecipeComponent implements OnInit {
 
   inputKeyDown(event, value: string) {
     if (event.key === "Enter" || event.key === "Tab") {
+    console.log(this.recipe);
+      console.log(this.recipe.ingredients);
       this.recipe.ingredients.push(value);
+      console.log(this.recipe.ingredients);
       this.showNewIngredientInputField = false;
       event.target.value = '';
     }
