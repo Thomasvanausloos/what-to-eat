@@ -1,9 +1,14 @@
-import { Injectable } from "@angular/core";
-import { RECIPE_DATA } from "./data";
-import { of, Observable } from "rxjs";
-import { map} from "rxjs/operators";
-import { Recipe } from "./recipe";
-import {filter} from "rxjs/internal/operators";
+import {Injectable} from "@angular/core";
+import {RECIPE_DATA} from "./data";
+import {Observable, of} from "rxjs";
+import {map} from "rxjs/operators";
+import {Recipe} from "./recipe";
+import {HttpClient} from "@angular/common/http";
+import {tap} from "rxjs/internal/operators";
+
+interface RecipeData {
+  value: Array<Recipe>;
+}
 
 @Injectable({
   providedIn: "root"
@@ -11,12 +16,13 @@ import {filter} from "rxjs/internal/operators";
 export class RecipeService {
   recipes: Array<Recipe>;
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.recipes = RECIPE_DATA;
   }
 
-  getAllRecipes() {
-    return of(this.recipes);
+  getAllRecipes(): Observable<Array<Recipe>> {
+    return this.httpClient.get<RecipeData>('http://localhost:8090/api/ui/recipes').pipe(tap(data => console.log(data)),map(data => data.value));
+    // return of(this.recipes);
   }
 
   getRecipeById(id: number): Observable<Recipe> {

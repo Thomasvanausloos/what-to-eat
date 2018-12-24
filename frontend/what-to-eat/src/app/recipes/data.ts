@@ -24,7 +24,7 @@ export const RECIPE_DATA = [
     name: "Steak tartaar",
     label: "vlees",
     imageUrl:
-      "https://www.solo.be/uploadedimages/recepten/afbeeldingen/642/436/Knorr_SpaghettiCarbonara_01_2013_DRUKWERK_RGB_KL.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Spaghetti_carbonara.jpg/1200px-Spaghetti_carbonara.jpg",
     amountOfPeople: 2
   },
   {
@@ -41,7 +41,7 @@ export const RECIPE_DATA = [
     name: "Chocolade Cake",
     label: "dessert",
     imageUrl:
-      "https://img.static-smb.be/a/food/image/q75/w640/h400/15627/steak-tartaar-basisrecept.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQANtqBUGHpEj6PdSsK7f0UW64qfE6KOOClOyB-tTxUTgiFMRuhiA",
     amountOfPeople: 3
   },
   {
@@ -69,7 +69,7 @@ export const RECIPE_DATA = [
     name: "Steak tartaar",
     label: "vlees",
     imageUrl:
-      "https://www.solo.be/uploadedimages/recepten/afbeeldingen/642/436/Knorr_SpaghettiCarbonara_01_2013_DRUKWERK_RGB_KL.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Spaghetti_carbonara.jpg/1200px-Spaghetti_carbonara.jpg",
     amountOfPeople: 2
   },
   {
@@ -86,7 +86,7 @@ export const RECIPE_DATA = [
     name: "Chocolade Cake",
     label: "dessert",
     imageUrl:
-      "https://img.static-smb.be/a/food/image/q75/w640/h400/15627/steak-tartaar-basisrecept.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQANtqBUGHpEj6PdSsK7f0UW64qfE6KOOClOyB-tTxUTgiFMRuhiA",
     amountOfPeople: 3
   },
   {
@@ -114,7 +114,7 @@ export const RECIPE_DATA = [
     name: "Steak tartaar",
     label: "vlees",
     imageUrl:
-      "https://www.solo.be/uploadedimages/recepten/afbeeldingen/642/436/Knorr_SpaghettiCarbonara_01_2013_DRUKWERK_RGB_KL.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Spaghetti_carbonara.jpg/1200px-Spaghetti_carbonara.jpg",
     amountOfPeople: 2
   },
   {
@@ -131,7 +131,7 @@ export const RECIPE_DATA = [
     name: "Chocolade Cake",
     label: "dessert",
     imageUrl:
-      "https://img.static-smb.be/a/food/image/q75/w640/h400/15627/steak-tartaar-basisrecept.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQANtqBUGHpEj6PdSsK7f0UW64qfE6KOOClOyB-tTxUTgiFMRuhiA",
     amountOfPeople: 3
   }
 ];

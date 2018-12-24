@@ -6,7 +6,9 @@ import {Observable, of} from "rxjs/index";
 })
 export class FeatureService {
 
+  private PLANNING_FEATURE = false;
+
   public planningFeatureActive(): Observable<boolean> {
-    return of(false);
+    return of(this.PLANNING_FEATURE);
   }
 }

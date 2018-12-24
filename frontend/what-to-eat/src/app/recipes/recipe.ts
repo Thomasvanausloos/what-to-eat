@@ -11,7 +11,7 @@ export class Recipe {
   constructor() {
     this.amountOfPeople = 4;
     this.imageUrl = '';
-    this.ingredients = new Array<string>;
-    this.preparationSteps = new Array<string>;
+    this.ingredients = new Array<string>();
+    this.preparationSteps = new Array<string>();
   }
 }

@@ -63,7 +63,7 @@ export class ResipeDashboardComponent implements OnInit, OnDestroy{
       name: "Chocolade Cake",
       label: "dessert",
       imageUrl:
-        "https://img.static-smb.be/a/food/image/q75/w640/h400/15627/steak-tartaar-basisrecept.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQANtqBUGHpEj6PdSsK7f0UW64qfE6KOOClOyB-tTxUTgiFMRuhiA",
       amountOfPeople: 3
     };
 
