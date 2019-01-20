@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {RecipeService} from "../recipe.service";
-import {Recipe} from "../recipe";
-import {BehaviorSubject, Observable} from "rxjs/index";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {RecipeService} from '../recipe.service';
+import {Recipe} from '../recipe';
+import {BehaviorSubject} from 'rxjs/index';
 
 @Component({
   selector: 'app-add-recipe-container',
@@ -21,8 +21,8 @@ export class AddRecipeContainerComponent implements OnInit {
     this.recipe$ = new BehaviorSubject<Recipe>(this.setupNewRecipe());
   }
 
-  setupNewRecipe(){
-    let  newRecipe = new Recipe();
+  setupNewRecipe() {
+    const newRecipe = new Recipe();
     newRecipe.id = this.recipeService.calculateNextId();
     return newRecipe;
   }

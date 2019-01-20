@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Recipe} from "../recipe";
+import {Recipe} from '../recipe';
 
 @Component({
   selector: 'app-add-or-edit-recipe',

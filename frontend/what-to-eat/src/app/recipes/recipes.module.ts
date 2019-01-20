@@ -15,7 +15,7 @@ import { RouterModule } from "../../../node_modules/@angular/router";
 import {FormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material";
 import { TeaserRecipeComponent } from './teaser-recipe/teaser-recipe.component';
-import { ResipeDashboardComponent } from './resipe-dashboard/resipe-dashboard.component';
+import { RecipeDashboardComponent } from './recipe-dashboard/recipe-dashboard.component';
 import { EditRecipeContainerComponent } from './edit-recipe-container/edit-recipe-container.component';
 import { AddOrEditRecipeComponent } from './add-or-edit-recipe/add-or-edit-recipe.component';
 import { AddRecipeContainerComponent } from './add-recipe-container/add-recipe-container.component';
@@ -39,12 +39,12 @@ import { AddRecipeContainerComponent } from './add-recipe-container/add-recipe-c
     DisplayRecipeComponent,
     RecipeListComponent,
     TeaserRecipeComponent,
-    ResipeDashboardComponent],
+    RecipeDashboardComponent],
   declarations: [
     DisplayRecipeComponent,
     RecipeListComponent,
     TeaserRecipeComponent,
-    ResipeDashboardComponent,
+    RecipeDashboardComponent,
     EditRecipeContainerComponent,
     AddOrEditRecipeComponent,
     AddRecipeContainerComponent

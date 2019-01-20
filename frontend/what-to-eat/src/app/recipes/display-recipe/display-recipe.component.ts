@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { Recipe } from "../recipe";
-import { Observable } from "../../../../node_modules/rxjs";
-import { RecipeService } from "../recipe.service";
-import {ActivatedRoute, Router} from "../../../../node_modules/@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Recipe} from '../recipe';
+import {Observable} from '../../../../node_modules/rxjs';
+import {RecipeService} from '../recipe.service';
+import {ActivatedRoute, Router} from '../../../../node_modules/@angular/router';
 
 @Component({
-  selector: "app-display-recipe",
-  templateUrl: "./display-recipe.component.html",
-  styleUrls: ["./display-recipe.component.css"]
+  selector: 'app-display-recipe',
+  templateUrl: './display-recipe.component.html',
+  styleUrls: ['./display-recipe.component.css']
 })
 export class DisplayRecipeComponent implements OnInit {
   recipe$: Observable<Recipe>;
@@ -37,7 +37,7 @@ export class DisplayRecipeComponent implements OnInit {
       Number(this.route.snapshot.paramMap.get("id"))
     );
   }
-  navigateToEditScreen(){
+  navigateToEditScreen() {
     this.router.navigate(["edit",this.route.snapshot.paramMap.get("id")]);
   }
 }

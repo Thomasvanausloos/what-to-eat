@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {RecipeService} from "../recipe.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Recipe} from "../recipe";
-import {Observable} from "rxjs/index";
+import {Component, OnInit} from '@angular/core';
+import {RecipeService} from '../recipe.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Recipe} from '../recipe';
+import {Observable} from 'rxjs/index';
 
 @Component({
   selector: 'app-edit-recipe-container',

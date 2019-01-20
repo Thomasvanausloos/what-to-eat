@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
-import {FeatureService} from "../service/feature.service";
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular/router';
+import {Observable} from 'rxjs';
+import {FeatureService} from '../service/feature.service';
 
 @Injectable()
 export class PlanningFeatureGuard implements CanActivate {

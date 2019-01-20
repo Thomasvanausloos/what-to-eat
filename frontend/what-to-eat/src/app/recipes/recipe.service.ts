@@ -1,17 +1,17 @@
-import {Injectable} from "@angular/core";
-import {RECIPE_DATA} from "./data";
-import {Observable, of} from "rxjs";
-import {map} from "rxjs/operators";
-import {Recipe} from "./recipe";
-import {HttpClient} from "@angular/common/http";
-import {tap} from "rxjs/internal/operators";
+import {Injectable} from '@angular/core';
+import {RECIPE_DATA} from './data';
+import {Observable, of} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Recipe} from './recipe';
+import {HttpClient} from '@angular/common/http';
+import {tap} from 'rxjs/internal/operators';
 
 interface RecipeData {
   value: Array<Recipe>;
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class RecipeService {
   recipes: Array<Recipe>;
@@ -21,8 +21,8 @@ export class RecipeService {
   }
 
   getAllRecipes(): Observable<Array<Recipe>> {
-    return this.httpClient.get<RecipeData>('http://localhost:8090/api/ui/recipes').pipe(tap(data => console.log(data)),map(data => data.value));
-    // return of(this.recipes);
+    // return this.httpClient.get<RecipeData>('api/ui/recipes').pipe(tap(data => console.log(data)),map(data => data.value));
+    return of(this.recipes);
   }
 
   getRecipeById(id: number): Observable<Recipe> {
@@ -35,18 +35,20 @@ export class RecipeService {
     this.recipes.push(recipe);
   }
 
-  calculateNextId(): number{
+  calculateNextId(): number {
     return this.recipes.length;
   }
+
   updateRecipe(recipeToUpdate: Recipe) {
     this.recipes = this.recipes.map(recipe => {
-      if(recipe.id === recipeToUpdate.id){
+      if (recipe.id === recipeToUpdate.id) {
         return recipeToUpdate;
-      } else{
-        return recipe
+      } else {
+        return recipe;
       }
     });
   }
+
   filterRecipes(searchTerm: string): Observable<Array<Recipe>> {
     return of(this.recipes).pipe(
       map(recipes => recipes.filter(recipe => recipe.name.toLowerCase().startsWith(searchTerm.toLowerCase()) || recipe.name.toLowerCase().includes(searchTerm.toLowerCase())))

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-teaser-recipe',
@@ -11,12 +11,13 @@ export class TeaserRecipeComponent implements OnInit {
   @Input() teaserSubtitle;
   @Input() recipe;
 
-  constructor(private router: Router ) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  navigateToRecipeDetail(){
-    this.router.navigate(["detail", this.recipe.id])
+  navigateToRecipeDetail() {
+    this.router.navigate(['detail', this.recipe.id]);
   }
 }
