@@ -12,7 +12,7 @@ export class PlanningFeatureGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // return this.featureService.planningFeatureActive();
-    return false;
+    return this.featureService.planningFeatureActive();
+    // return false;
   }
 }

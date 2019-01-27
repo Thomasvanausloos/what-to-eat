@@ -12,7 +12,7 @@ export class SecurityDirective implements OnInit {
               private templateRef: TemplateRef<any>) { }
 
   ngOnInit(): void {
-    if(this.featureIsActive && !this.isVisible){
+    if (this.featureIsActive && !this.isVisible) {
       this.isVisible = true;
       this.viewContainerRef.createEmbeddedView(this.templateRef);
     } else {

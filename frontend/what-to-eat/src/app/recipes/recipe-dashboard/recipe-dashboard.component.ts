@@ -3,7 +3,7 @@ import {Recipe} from '../recipe';
 import {Router} from '@angular/router';
 import {Observable, Subject} from 'rxjs/index';
 import {RecipeService} from '../recipe.service';
-import {debounceTime, distinctUntilChanged, merge, switchMap, takeUntil} from 'rxjs/internal/operators';
+import {debounceTime, distinctUntilChanged, merge, switchMap, takeUntil, tap} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-resipe-dashboard',
@@ -24,13 +24,13 @@ export class RecipeDashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    // this.allRecipes$ = this.recipeService.getAllRecipes();
+    // this.allRecipes$ = this.recipeService.getAllRecipes().pipe(tap(recipes => console.log(recipes)));
     this.allRecipes$ = this.searchTerm$.pipe(
       debounceTime(400),
       distinctUntilChanged(),
-      switchMap(searchterm => this.recipeService.filterRecipes(searchterm).pipe(
-        takeUntil(this.searchTerm$)
-      )),
+      switchMap(searchterm => this.recipeService.filterRecipes(searchterm)),
+    //     .pipe(
+    //     takeUntil(this.searchTerm$))),
       merge(this.recipeService.getAllRecipes()),
       takeUntil(this.unsubscribe$)
     );

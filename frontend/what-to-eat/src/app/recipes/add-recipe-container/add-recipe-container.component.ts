@@ -26,10 +26,11 @@ export class AddRecipeContainerComponent implements OnInit {
     newRecipe.id = this.recipeService.calculateNextId();
     return newRecipe;
   }
+
   saveRecipe(recipe: Recipe) {
     console.log(recipe);
     this.recipeService.addRecipe(recipe);
-    this.recipe$.next(recipe);
+    this.recipe$.next(recipe); // TODO: check if this is still necessary!!!
     this.router.navigate(["/home"]);
   }
 

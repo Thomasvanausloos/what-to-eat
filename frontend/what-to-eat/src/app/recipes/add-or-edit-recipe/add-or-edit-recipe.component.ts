@@ -58,14 +58,14 @@ export class AddOrEditRecipeComponent implements OnInit {
       ingredient => ingredient !== ingredientToRemove
     );
   }
-  saveRecipe(){
+  saveRecipe() {
     console.log('in save');
     this.onBewaar.emit(this.recipe);
   }
 
   deleteStep(stepToRemove: string) {
     this.recipe.preparationSteps = this.recipe.preparationSteps.filter(
-    step => step != stepToRemove
+    step => step !== stepToRemove
     );
   }
 
