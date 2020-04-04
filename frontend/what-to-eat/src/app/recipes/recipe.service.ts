@@ -1,13 +1,10 @@
-import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Recipe} from './recipe';
 import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RecipeService {
   recipes: Array<Recipe>;
 

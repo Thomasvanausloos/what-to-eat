@@ -1,9 +1,7 @@
+import {Observable, of} from 'rxjs';
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs/index';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FeatureService {
 
   private PLANNING_FEATURE = false;

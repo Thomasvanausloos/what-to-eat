@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FeatureService} from "../../security/service/feature.service";
-import {Observable} from "rxjs/index";
+import {FeatureService} from '../../security/service/feature.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
