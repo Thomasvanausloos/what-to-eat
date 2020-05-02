@@ -1,10 +1,8 @@
 import express from 'express';
-import Router from 'express-promise-router';
+import AppRouter from './app.router';
 
 
-let appRouter = Router();
-appRouter.get('/test', () => console.log('test works'))
 
 let app = express();
-app.use(appRouter)
+app.use(AppRouter);
 app.listen(3000);
